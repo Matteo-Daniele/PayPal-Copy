@@ -1,0 +1,922 @@
+@font-face {
+    font-family: 'PayPal';
+    src: url(Fonts/paypal-sans-font/PayPalSansSmall-Medium-Klim.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PayPal';
+    src: url(Fonts/paypal-sans-font/PayPalSansBig-Light-Klim.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+html, body{
+    z-index: -2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+#page{
+    width: 100%;
+    transition: transform 0.5s;
+    font-family: PayPal, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+.style-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+    height:56px;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+.img-paypal{
+    width: 26px;
+    height: 30px;
+    background-size: cover;
+    background-clip: content-box;
+    background-origin: content-box;
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/logo/full-text/pp_fc_hl.svg);
+}
+.click-header{
+    color: #0070ba;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #0070ba;
+    border-radius: 20px;    
+}
+.click-header h4{
+    font-weight: bold;
+}
+.open-account-desktop button{
+    display: none;
+}
+.menu-header{
+    width: 80px;
+}
+.animation-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+.animation-menu span{
+    transition: transform 0.5s, width 0.5s;
+    display: flex;
+    background: rgb(45, 102, 176);
+    width: 14px;
+    height: 1px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+.animation-menu .line-2{
+    transform: translate(-50%, -5px);
+}
+.animation-menu .line-3{
+    transform: translate(-50%, 4px);
+}
+.openmenu .line-2{
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.openmenu .line-3{
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.openmenu .line-1{
+    width: 0;
+}
+.body-transform{
+    transform: translateX(240px);
+}
+.sidemenu{
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    padding: 0;
+    position: absolute;
+    left: -240px;
+    height: 100%;
+    width: 240px;
+    background-color: #012169;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 540px;
+    transition: transform 0.5s;
+}
+.sidemenu ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    width: 90%;
+    height: 150px;
+    list-style: none;
+    border-radius: 2px;
+    border-bottom: 1px solid rgb(166, 166, 166);
+}
+.sidemenu ul li{
+    font-family: PayPal;
+    font-weight: 500;
+    font-style: normal;
+}
+.sidemenu ul li button{
+    font-family: PayPal;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90px;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+    font-size: 14px;
+    background: none;
+    border: none;
+    color: white;
+}
+.sidemenu ul li button::after{
+    content: "";
+    width: 8px;
+    height: 8px;
+    transition: 0.5s;
+    float: right;
+    box-shadow: -1px 1px 0 rgba(255, 255, 255, 1);
+    transform: rotate(225deg);
+}
+.sidemenu ul li button.button-sidemenu::after{
+    transform: rotate(135deg);
+}
+.openaccount{
+    font-size: 14px;
+    background: none;
+    width: 180px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
+    color: white;
+}
+.subemnu{
+    font-size: 14px;
+    font-weight: 200;
+    color: white;
+    padding: 0;
+    position: absolute;
+    top: 0%;
+    left: -240px;
+    height: 100vh;
+    width: 240px;
+    background-color: #012169;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 30px;
+    padding-left: 15px;
+    gap: 20px;
+    justify-content: flex-start;
+    transition: transform 0.5s;
+}
+.sidemenu ul li .subemnu button{
+    display: flex;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: PayPal;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: row-reverse;
+}
+.sidemenu ul li .subemnu button::after{
+    transform: rotate(45deg);
+}
+.sidemenu ul li .subemnu ul{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    justify-content: space-around;
+    height: 300px;
+    border: none;
+}
+.sidemenu ul li .subemnu ul li{
+    font-weight: 100;
+}
+.open-submenu{
+    z-index: 1;
+    transform: translate(240px);
+    transition: transform 0.5s;
+}
+.hero{
+    width: 100%;
+    height: 63vh;
+    background-image: url("https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/revamp_heroes/img_hero-mbl_home.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    overflow: hidden;
+}
+.hero-color{
+    height: inherit;
+    -webkit-opacity: .6;
+    -moz-opacity: .6;
+    opacity: .6;
+    background-color: #009cde;
+    transform: skew(-5deg, 0deg);
+    width: 50%;
+}
+.hero-right{
+    background-color: #003087;
+}
+.hero-left-inside{
+    height: inherit;
+    background-color: #009cde;
+    position: absolute;
+    top: 0px;
+    left: -50%;
+    right: initial;
+    width: 100%;
+}
+.hero-right-inside{
+    height: inherit;
+    background-color: #003087;
+    position: absolute;
+    top: 0px;
+    right: -50%;
+    width: 100%;
+}
+.hero-things{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 350px;
+    color: white;
+    font-weight: 100;
+    box-sizing: content-box;
+}
+.hero-things h2{
+    font-size: 24px;
+    font-weight:100;
+}
+.hero-things-inside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:20px;
+    width: 40%;
+    height: 100%;
+    margin: 0;
+}
+.hero-things-inside h2, .hero-things-inside p{
+    margin: 0;
+}
+.mas-info-hero{
+    display: block;
+    font-weight: 800;
+    border-bottom: 1px solid white;
+}
+.hero-things-right{
+    display: flex;
+    align-items:flex-end;
+    text-align: right;
+}
+.hero-things-right p {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.hero-things-left p{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 160px;
+}
+.hero-things-middle{
+    display: none;
+}
+.button-change-hero{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+.button-change-hero::after{
+        content: "";
+        width: 8px;
+        height: 8px;
+        transition: 0.5s;
+        float: right;
+        box-shadow: -1px 1px 0 rgba(255, 255, 255, 1);
+        position: absolute;
+        top: 50%;
+        left: 44.5%;
+        transform:translate(-50%, -50%) rotate(225deg);
+}
+.link-next-section{
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.button-next-section{
+    content: "";
+    width: 11px;
+    height: 11px;
+    transition: 0.5s;
+    float: right;
+    box-shadow: -2px 2px 0 rgba(255, 255, 255, 1);
+    transform: rotate(-45deg);
+    opacity: 1;
+    animation: buttonFade 0.8s infinite alternate;
+}
+.button-next-section:nth-child(1){
+    animation-delay: 0;
+}
+.button-next-section:nth-child(2){
+    animation-delay: 0.2s;
+}
+.button-next-section:nth-child(3){
+    animation-delay: 0.4s;
+}
+@keyframes buttonFade{
+    0% {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Start with css of info main */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info{
+    padding: 20px 0px 20px 0px;
+    width: 85%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: 100;
+}
+.first-info-img{
+    display: none;
+}
+.info:nth-child(1){
+    border-bottom: 1px dotted rgb(157, 157, 157);
+}
+.info:nth-child(3){
+    height: 700px;
+}
+.info h2{
+    color: rgb(82, 82, 82);
+    font-size: 30px;
+    font-weight: 100;
+}
+.info span{
+    font-weight: 700; 
+    color: #0070ba;
+}
+.info a{
+    font-weight: 700; 
+    color: #0070ba;
+    text-decoration: none;
+}
+.info h3{
+    font-size: 20px;
+    font-weight: 100;
+}
+.image-pc-paypal{
+    width: 100%;
+    height: 40%;
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/2018_redesign/context/img_omni-checkout_context_es.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+.apps-with-paypal{
+    height: 50%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+}
+.image-app{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+.appOne{
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/logos/img_facebook.jpg);
+}
+.appTwo{
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/logos/img_fortnite.jpg);
+}
+.appThree{
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/logos/img_microsoft.jpg);
+}
+.appFour{
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/logos/img_spotify.jpg);
+}
+.appFive{
+    background-image: url(https://www.paypalobjects.com/digitalassets/c/website/marketing/latam/shared/home/logos/img_uber.jpg);
+}
+.button-section{
+    min-height: 120px;
+}
+.button-brands{
+    width: 320px;
+    height: 50px;
+    border: 1px solid #0070ba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+.last-section{
+    min-height: 320px;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+.last-section div{
+    font-family: PayPal;
+    width: 320px;
+    height: 50px;
+    background-color: #0070ba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    color: white;
+}
+.last-section h4{
+    margin-top: 0;
+    width: 80%;
+    color: rgb(75, 75, 75);
+    font-size: 20px;
+    font-weight: 100;
+}
+.last-section a{
+    margin-top: 5px;
+    font-size: 12px;
+}
+.father-container-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+/* I start with footer*/
+.container-footer{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: left;
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.container-footer ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    column-gap: 15px;
+    list-style: none;
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-size: 14px;
+}
+.container-footer ul li a{
+    text-decoration: none;
+    color: rgb(28, 28, 28);
+    font-weight: 100;
+}
+.father-country-image{
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+}
+.language-footer{
+    padding-right: 5px;
+    border-right: 1px solid rgb(215, 215, 215);
+    font-size: 12px;
+}
+.country-footer{
+    height: 100%;
+    width: 50%;
+    background-image: url(https://w7.pngwing.com/pngs/961/42/png-transparent-uruguay-flag-icon-thumbnail.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+.father-second-container-footer{
+    display: flex;
+    flex-direction: column;
+}
+.second-container-footer{
+    margin-top: 10px;
+}
+.second-container-footer ul{
+    color: rgb(122, 122, 122);
+}
+.last-container-footer{
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(122, 122, 122);
+    gap: 10px;
+}
+.last-container-footer p{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+@media screen and (min-width:1024px){
+    .body-transform{
+        transform: translate(0px);
+    }
+    .style-header{
+        height: 4.5vh;
+        justify-content: space-between;
+    }
+    .click-header{
+        cursor: pointer;
+    }
+    .img-paypal{
+        z-index: 1;
+        margin-left: 75px;
+        width: 140px;
+        height: 33px;
+        cursor: pointer;
+    }
+    .open-account-desktop{
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        margin-right: 75px;
+    }
+    .open-account-desktop button{
+        cursor: pointer;
+        font-size: 12px;
+        display: block;
+        color: white;
+        background-color: #0070ba;
+        border: none;
+        border-radius: 20px;
+        width: 100px;
+    }
+    .open-account-desktop button:hover{
+        background-color: #0060a0;
+    }
+    .menu-header{
+        display: none;
+    }
+    .sidemenu{
+        background-color: white;
+        z-index: 1;
+        gap: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        top: 2.25vh;
+        left: 50%;
+        width: 100%;
+        height: 4.4vh;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s;
+    }
+    .sidemenu ul{
+        align-items: center;
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 50px;
+        height: 100%;
+        border: none;
+        flex-direction: row;
+        color: rgb(66, 66, 66);
+    }
+    .sidemenu ul li{
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sidemenu ul li:hover{
+        border-bottom: 1px solid #003087;
+    }
+    .sidemenu ul li button{
+        height: 100%;
+        cursor: pointer;
+        justify-content: center;
+        gap: 15px;
+        font-weight: 400;
+        color: rgb(66, 66, 66);
+    }
+    .sidemenu ul li button::after{
+        box-shadow: -1px 1px 0 rgb(0, 0, 0);
+        text-align: center;
+        transform-origin: center;
+        transform: rotate(-45deg);
+    }
+    .openaccount{
+        display: none;
+    }
+    .subemnu{
+        display: flex;
+        padding: 0;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        top: 4.5vh;
+        width: 100%;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        background-color: #003087;
+        transition: all 0.5s;
+    }
+    .sidemenu ul li .subemnu button{
+       display: none;
+    }
+    .sidemenu ul li .subemnu ul{
+        height: 100px;
+        flex-direction: row;
+        color: transparent;
+    }
+    .open-submenu{
+        transform: translate(0px);
+        color: black;
+        height: 100px;
+    }
+    .sidemenu ul li .subemnu.open-submenu ul{
+        color: white;
+    }
+    .button-submenu{
+        display: none;
+    }
+    .hero{
+        position: relative;
+        height: 95.5vh;
+        background-size: cover;
+    }
+    .hero-things-father{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1150px;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-things{
+        left: auto;
+        top: auto;
+        transform: translate(0px, 0px);
+        position: static;
+        justify-content: start;
+        flex-direction: row;
+    }
+    .hero-things-inside{
+        width:100%;
+        justify-content: left;
+    }
+    .hero-things-inside h2{
+        width:auto;
+        font-size: 40px;
+    }
+    .hero-things-inside p{
+        margin: 12px 0;
+        width: 100%;
+        font-size: 20px;
+        display: block;
+    }
+    .mas-info-hero{
+        cursor: pointer;
+        display:inline;
+        height: 100%;
+        border-bottom: 1px solid white;
+    }
+    .mas-info-hero:hover{
+        color: rgb(234, 234, 234);
+    }
+    .hero-things-middle{
+        display: block;
+        color: #ffffff;
+        text-align: center;
+        width: 550px;
+    }
+    .hero-things-middle h1{
+        font-weight: 100;
+        font-size: 40px;
+    }
+    .button-change-hero{
+        cursor: pointer;
+        margin-top: 15px;
+        width: 300px;
+        height: 45px;
+        background-color: white;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-change-hero::after{
+        content: "Registrate sin costo";
+        width: 100%;
+        height: 100%;
+        transform: rotate(0deg);
+        transform: translate(0px, 0px);
+        top: auto;
+        left: auto;
+        box-shadow: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+    }
+    .button-change-hero:hover{
+        background-color: #e8e8e8;
+    }
+    .link-next-section{
+        top: 95%;
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+    }
+    .first-info{
+        padding: 80px 0 50px 0;
+        justify-content: flex-end;
+        gap: 100px;
+    }
+    .second-info{
+        padding-top: 80px;
+        gap: 100px;
+    }
+    .text-info{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    .info h2{
+        margin: 0;
+        font-size: 40px;
+    }
+    .text-info p:nth-child(2){
+        color: rgb(43, 43, 43);
+        line-height: 1.5;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .text-info p:nth-child(3){
+        font-size: 16px;
+    }
+    .second-text-info p{
+        width: 110%;
+    }
+    .second-text-info a{
+        margin-top: 15px;
+    }
+    .info-img{
+        display: block;
+        width: 30%;
+        height:60%;
+        image-resolution: 75px;
+    }
+    .info:nth-child(3){
+        width: 100%;
+        flex-direction: column;
+    }
+    .info h3{
+        width: 63%;
+        font-size: 20px;
+    }
+    .image-pc-paypal{
+        height: 800px;
+        background-size: 800px;
+    }
+    .apps-with-paypal{
+        height: 20%;
+        gap: 50px;
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: minmax(25px, auto);
+    }
+    .button-section{
+        flex-direction: column;
+    }
+    .last-section{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+    .last-section h4{
+        margin: 0;
+    }
+    .last-section a{
+        margin: 0;
+        font-size: 14px;
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .father-container-footer{
+        width: 60%;
+    }
+    .container-footer{
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .father-country-image{
+        align-items: center;
+    }
+    .country-footer{
+        height: 40%;
+    }
+    .father-second-container-footer{
+        flex-direction: row;
+    }
+    .last-container-footer{
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .second-container-footer{
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        border: none;
+    }
+    .finish-footer{
+        margin: 0;
+    }
+    .last-container-footer p{
+        font-size: 13px;
+        width: 100%;
+    }
+}
